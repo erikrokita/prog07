@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app1" ng-init="person = {fName: 'Person', lName: 'Guy'}; capitals = [{city: 'Montgomery', state: 'Alabama'}, {city: 'Juneau', state: 'Alaska'}, {city: 'Phoenix', state: 'Arizona'}]">
+	<head>
+		<title>prog07</title>
+	</head>
+	<body>
+		<div ng-controller="ctrl1">
+			<span>Values:</span>
+			<input type="text" ng-model="first" />
+			<input type="text" ng-model="second" />
+			<br/>
+			<button ng-click="updateValueSum()">Sum</button>
+			<button ng-click="updateValueSub()">Subtract</button>
+			<button ng-click="updateValueMul()">Multiply</button>
+			<button ng-click="updateValueDiv()">Divide</button>
+			<br/></br>
+			
+			{{calculation}}
+			
+			<p>Your first value is {{first}}</p>
+			<p>Your second value is <span data-ng-bind="second"></span></p>
+			<p>{{person.fName + " " + person.lName}} you entered {{first + " and " + second}}</p>
+			<ul>
+				<li ng-repeat="capital in capitals">{{'City: ' + capital.city + ', State: ' + capital.state}}</li>
+			</ul>
+			<h4 ng-controller="ctrl1"> {{person.fName}} is feeling {{randMood}}</h4>
+			
+			<p ng-controller="ctrl1">Your lucky number is: {{randNum}}</p>
+			
+			<p>Don't forget to buy: </p>
+			<ul ng-repeat="grocery in groceries">
+				<li>{{grocery.item}}</li>
+			</ul>
+			
+			<label>Type a number: 
+				<input type="text" ng-model="someNumber"/>
+			</label>
+			<div ng-switch="someNumber">
+				<p ng-switch-when="1">You entered 1</p>
+				<p ng-switch-when="2">You entered 2</p>
+				<p ng-switch-when="3">You entered 3</p>
+				<p ng-switch-when="4">You entered 4</p>
+				<p ng-switch-default="1">Errors</p>
+			</div>
+		</div>
+		
+		<div ng-controller="ctrl1">
+			<input ng-blur="blur = blur + 1"
+			ng-dblclick="dblclick = dblclick + 1"
+			ng-focus="focus = focus + 1"
+			ng-mouseenter="mouseenter = mouseenter + 1"/>
+			<h4>Blur events : {{blur}}</h4>
+			<h4>Double-Click events : {{dblclick}}</h4>
+			<h4>Focus events : {{focus}}</h4>
+			<h4>Mouse Enter events : {{mouseenter}}</h4>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="javascript/prog07.js"></script>
+	</body>
+</html>
