@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app3" ng-cloak>
+	<head>
+		<title>prog07 3</title>
+		<style>
+			[ng\:cloak], [ng-cloak], .ng-cloak{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="groceryList" ng-controller="gListCtrl">
+			<h3 class="ListTitle">{{groceries.length}} Groceries to get</h3>
+			
+			<ol style="margin: 0 0 -15px 0;">
+				<li>{{groceries[0].item}}</li>
+			</ol>
+			<ol start="2">
+				<li ng-repeat="grocery in groceries" ng-if="$index > 0">{{grocery.item}} {{$index}}</li>
+			</ol>
+			<table>
+				<tr ng-repeat-start="grocery in groceries">
+					<td>{{grocery.item}}</td>
+				</tr>
+				<tr ng-repeat-end>
+					<td>{{grocery.purchased}}</td>
+				</tr>
+			</table>
+			<label>change 1st item: </label>
+			<input ng-model="groceries[0].item"/>
+			
+			
+			
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="javascript/prog07_3.js"></script>
+	</body>
+</html>
