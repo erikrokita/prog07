@@ -1,0 +1,25 @@
+<html ng-app="app1">
+	<head>
+		<title></title>
+	</head>
+	<body ng-controller="ctrl1">
+		<p>Don't forget to buy: </p>
+		<ul ng-repeat="grocery in groceries">
+			<li>{{grocery.item}}</li>
+		</ul>
+		
+		<label>Type a number: 
+			<input type="text" ng-model="someNumber"/>
+		</label>
+		<div ng-switch="someNumber">
+			<p ng-switch-when="1">you decide to buy item 1</p>
+			<p ng-switch-when="2">you decide to buy item 2</p>
+			<p ng-switch-when="3">you decide to buy item 3</p>
+			<p ng-switch-when="4">you decide to buy item 4</p>
+			<p ng-switch-default="1">you decide to not buy anything</p>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="javascript/prog07_4.js"></script>
+	</body>
+</html>
